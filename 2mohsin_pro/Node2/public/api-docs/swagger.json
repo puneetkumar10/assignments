@@ -1,0 +1,131 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "This is Party API",
+    "version": "1.0.0",
+    "title": "Party API",
+    "contact": {
+      "email": "puneet@akeo.no"
+    }
+  },
+  "host": "localhost:3005",
+  "basePath": "/party",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/createparty": {
+      "post": {
+        "tags": [
+          "Party"
+        ],
+        "summary": "create a party entry in database",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "operationId": "createParty",
+        "description": "requires name , occasion and date\n",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "name",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "formData",
+            "name": "occasion",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "formData",
+            "name": "date",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "formData",
+            "name": "node",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": " Party Due !! ",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/allparty": {
+      "get": {
+        "tags": [
+          "Party"
+        ],
+        "summary": "Get all due parties !",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "operationId": "getParty",
+        "description": "get all parties\n",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": " Party list fetched. !! ",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/deleteparty": {
+      "delete": {
+        "tags": [
+          "Party"
+        ],
+        "summary": "Remove party from database",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "operationId": "removeParty",
+        "description": "Require name and date of party to remove entry from database\n",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "name",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "formData",
+            "name": "date",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": " Wallet created !! ",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    }
+  }
+}

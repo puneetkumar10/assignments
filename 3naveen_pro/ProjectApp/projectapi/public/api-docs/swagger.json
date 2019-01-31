@@ -1,0 +1,94 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "This is Userarty API",
+    "version": "1.0.0",
+    "title": "User API",
+    "contact": {
+      "email": "puneet@akeo.no"
+    }
+  },
+  "host": "localhost:3000",
+  "basePath": "/user",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/createuser": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "summary": "create a user entry in database",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "operationId": "createUser",
+        "description": "requires name , password\n",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "username",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "formData",
+            "name": "password",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": " User created !! ",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/login": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "summary": "checks for existing user to login",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "operationId": "loginUser",
+        "description": "requires name , password\n",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "username",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "formData",
+            "name": "password",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Login done !! ",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    }
+  }
+}
