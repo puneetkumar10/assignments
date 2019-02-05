@@ -1,0 +1,50 @@
+swagger: '2.0'
+info:
+  description: 
+  version: 1.0.0
+  title: Swagger
+  termsOfService: ''
+host: 192.168.1.219:49160
+basePath: /dockerserver
+
+schemes:
+  - http
+  - https
+paths:
+  /servercall:
+    post:
+      tags:
+        - DockerServer
+      summary: docker
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: Message sent from normal app
+        required: true
+        schema:
+          type: object
+          properties:
+            message:
+              type: string
+      responses:
+        '200':
+          description: Message successfully sent 
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: string
+                  data:
+                    type: string
+        '400':
+          description: User errors
+      security:
+        - api_key: []
+  
+  
